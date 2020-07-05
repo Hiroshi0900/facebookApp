@@ -1,0 +1,53 @@
+
+<template>
+    <div class='flex flex-col flex-1 h-screen over-flow-y-hidden' v-if="authUser">
+		<Nav />
+		<div class='flex over-flow-y-hidden flex-1'>
+			<!-- <div class='w-1/3'>
+				Side Bar
+			</div> -->
+		    <Sidebar />
+			<div class='over-flow-x-hidden w-2/3'>
+				<router-view :key="$route.fullPath">
+				</router-view>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+    import Nav     from './Nav';
+    import Sidebar from './Sidebar';
+    import { mapGetters } from 'vuex';
+    
+	export default {
+		name:'App',
+		
+		components:{
+			Nav,
+			Sidebar,
+		},
+		mounted(){
+			this.$store.dispatch('fetchAuthUser');
+		},
+		// 初期状態のタイトルを設定する
+		created(){
+			this.$store.dispatch('setPageTitle' ,this.$route.meta.title);
+		},
+		computed:{
+			...mapGetters({
+				authUser:'authUser'
+			}),
+		},
+		// watchプロパティは監視だったはず
+		watch :{
+			$route(to,from){
+				this.$store.dispatch('setPageTitle' ,to.meta.title);
+			}
+		},
+    }
+</script>
+
+<style scoped>
+
+</style>
