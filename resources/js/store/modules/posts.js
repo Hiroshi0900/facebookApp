@@ -65,10 +65,9 @@ const actions = {
 		    .catch(error =>{
 		    });
 	},
-	// TODO logout検証
+
 	logout({ commit, state }) {
 		axios.post('/logout');
-		alert('logoutできた');
 		location.href = "/login";
 	},
 	// TODO

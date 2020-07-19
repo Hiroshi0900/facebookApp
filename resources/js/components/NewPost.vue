@@ -1,4 +1,4 @@
-<template>
+f<template>
     <div class='bg-white rounded shadow p-4 w-2/3'>
 	    <!-- フレックスコンテナ（並べる）にする -->
 		<div class='flex justify-between items-center'>

@@ -2,15 +2,11 @@
 <template>
     <div class='flex flex-col flex-1 h-screen over-flow-y-hidden' v-if="authUser">
 		<Nav />
-		<div class='flex over-flow-y-hidden flex-1'>
-			<!-- <div class='w-1/3'>
-				Side Bar
-			</div> -->
+		<div class='flex overflow-y-hidden flex-1'>
 		    <Sidebar />
-			<div class='over-flow-x-hidden w-2/3'>
-				<router-view :key="$route.fullPath">
-				</router-view>
-			</div>
+            <div class="overflow-x-hidden w-2/3">
+                <router-view :key="$route.fullPath"></router-view>
+            </div>
 		</div>
 	</div>
 </template>
